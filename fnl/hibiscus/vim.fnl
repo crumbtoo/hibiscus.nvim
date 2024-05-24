@@ -265,6 +265,14 @@
   "prepends 'val' to vim option 'name'."
   `(: (. vim.opt ,(parse-sym name)) :prepend ,val))
 
+(lun setlocal+ [name val]
+  "appends 'val' to vim local option 'name'."
+  `(: (. vim.opt_local ,(parse-sym name)) :append ,val))
+
+(lun setlocal^ [name val]
+  "prepends 'val' to vim local option 'name'."
+  `(: (. vim.opt_local ,(parse-sym name)) :prepend ,val))
+
 (lun rem! [name val]
   "removes 'val' from vim option 'name'."
   `(: (. vim.opt ,(parse-sym name)) :remove ,val))
